@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'ML';
+    src: url(../assets/fonts/MonsieurLaDoulaise-Regular.ttf);
+    font-weight: 700;
+}
+
+
+
+$Poppins: ('Regular', 400),
+          ('Bold', 700);
+
+@each $name, $weight in $Poppins{
+    @font-face {
+        font-family: 'Poppins';
+        src: url(../assets/fonts/VictorMono-#{$name}.ttf);
+        font-weight: $weight;
+    }
+}
+
+
+ 

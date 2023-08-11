@@ -1,0 +1,151 @@
+// 
+
+.header {
+  &__nav {
+    // background: rgba(20, 20, 20, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    border-bottom: 2px solid #0f103f;
+  
+
+    &.color {
+      animation: scroll 1s forwards linear;
+    }
+
+    &-logo {
+      position: relative;
+      z-index: 150;
+    
+    }
+
+    &-btn {
+      width: 30px;
+      height: 20px;
+      position: relative;
+      display: none;
+      z-index: 150;
+      margin: 50px;
+
+      @include media(800) {
+        display: block;
+      }
+
+      & span {
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 100%;
+        height: 2px;
+        background: white;
+        transition: .3s;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: white;
+        position: absolute;
+        left: 0;
+        transition: .3s;
+      }
+
+      &::before {
+        top: 0;
+      }
+
+      &::after {
+        bottom: 0;
+      }
+
+      &.active:before {
+        transform: rotate(45deg);
+        top: 9px;
+      }
+
+      &.active:after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+      }
+
+      &.active span {
+        width: 0;
+      }
+    }
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100px;
+    }
+
+    &-list {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      @include media(800) {
+        position: fixed;
+        flex-direction: column;
+        top: -100%;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(7px);
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+
+        transition: .3s;
+
+        &.active {
+          top: 0;
+          overflow: auto;
+        }
+      }
+    }
+
+    &-link {
+      // margin: 10px;
+      font-size: 21px;
+      line-height: 25px;
+      color: #fff;
+      font-weight: 700;
+      padding: 34px 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      @include media(800) {
+        padding: 20px 0;
+      }
+
+      &:hover {
+        color: #c961de;
+      }
+
+      &.router-link-exact-active {
+        color: white;
+
+        &:focus {
+          color: #2954a3;
+        }
+
+      }
+
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    background: transparent;
+  }
+
+  100% {
+    background: #0f103f;
+  }
+}

@@ -1,0 +1,40 @@
+.project {
+    padding-top: 130px;
+
+    &__title {
+        color: #FFF;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 39px;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: center;
+        
+        gap: 40px;
+        @include media(800){
+            align-items: center;
+            flex-direction: column-reverse;
+
+        }
+    }
+
+    &__item {
+        cursor: pointer;
+       width: 400px;
+        border-radius: 12px;
+        background: rgba(181, 249, 253, 0.42);
+        backdrop-filter: blur(4.041352272033691px);
+        padding: 15px 25px;
+        border-bottom: 45px solid rgba(0, 0, 0, 0.30);;
+
+        &-img {
+            width: 350px;
+            height: 300px;
+            border-radius: 12px;
+        }
+    }
+}
